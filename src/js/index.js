@@ -1,13 +1,13 @@
-import { generateHome } from "./home.js";
-import { generateContact } from "./contact.js";
-import { generateMenu } from "./menu.js";
-import './style.css';
-import './bgimage.jpg';
+import { generateHome } from './home.js';
+import { generateContact } from './contact.js';
+import { generateMenu } from './menu.js';
+import '../css/style.css';
+import '../assets/bgimage.jpg';
 
-console.log("This is working!");
+console.log('This is working!');
 
 const tabs = document.querySelectorAll('nav button');
-tabs.forEach(tab => tab.addEventListener('click', generateContent));
+tabs.forEach((tab) => tab.addEventListener('click', generateContent));
 
 function generateContent(e) {
     switch (e.target.value) {

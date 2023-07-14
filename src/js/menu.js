@@ -1,4 +1,4 @@
-import svg from './methods.svg';
+import svg from '../assets/methods.svg';
 
 export function generateMenu() {
     const content = document.querySelector('#content');
@@ -20,12 +20,17 @@ export function generateMenu() {
 
 function createBeansDiv() {
     const gridContents = {
-        'Guatemalan Monte Rosa': 'A slow-growing, high-altitude bean that provides a full body with rich, smooth chocolatey, nutty notes.',
-        'Ethiopian Rocko Mountain': 'A light-medium roast that shows off an enormous complexity of fruity and floral notes, with a subtle hint of wine.',
+        'Guatemalan Monte Rosa':
+            'A slow-growing, high-altitude bean that provides a full body with rich, smooth chocolatey, nutty notes.',
+        'Ethiopian Rocko Mountain':
+            'A light-medium roast that shows off an enormous complexity of fruity and floral notes, with a subtle hint of wine.',
         'Monsoon Malabar': 'Dark and heavy - these beans boast a deep, smokey, spicy flavour profile.',
-        'Brazilian Monte Cristo': 'This full-bodied blend gives a subtle sweetness and delicate acidity with a unique aftertaste of cocoa and vanilla.',
-        'Old Brown Java': 'For the bold! Strong and heavy with little complexity, this is all about the rich intensity and depth of flavour.',
-        'Colombian Supremo': 'A classic medium-roasted all-rounder. Well-balanced, smooth and with notes of chocolate and caramel.',
+        'Brazilian Monte Cristo':
+            'This full-bodied blend gives a subtle sweetness and delicate acidity with a unique aftertaste of cocoa and vanilla.',
+        'Old Brown Java':
+            'For the bold! Strong and heavy with little complexity, this is all about the rich intensity and depth of flavour.',
+        'Colombian Supremo':
+            'A classic medium-roasted all-rounder. Well-balanced, smooth and with notes of chocolate and caramel.',
     };
 
     const div = document.createElement('div');
@@ -51,13 +56,13 @@ function createMethodDiv() {
     const price = document.createElement('h2');
 
     heading.textContent = 'Choose a classic brewing method';
-    methodsArr.forEach(method => {
+    methodsArr.forEach((method) => {
         const p = document.createElement('p');
         p.textContent = method;
         methods.appendChild(p);
     });
     price.textContent = 'Mug (200ml) - £2.99';
-    
+
     div.appendChild(heading);
     div.innerHTML += svg;
     div.appendChild(methods);
@@ -68,11 +73,13 @@ function createMethodDiv() {
 
 function createEspressoDiv() {
     const gridContents = {
-        'Americano': 'Hot water poured over a shot of espresso.',
+        Americano: 'Hot water poured over a shot of espresso.',
         'Flat White': 'Espresso, steamed milk with a delicate layer of frothy milk to top.',
-        'Caffè Latte': 'A shot of espresso, steamed milk and a fine layer of foamed milk on top, though more than a flat white.',
-        'Cappuccino': 'Related to the latte but with equal parts steamed milk and foamed milk - show off your foamstache!',
-        'Mocha': 'A shot of espresso mixed with chocolate syrup, steamed milk then topped with foamed milk and cocoa powder.',
+        'Caffè Latte':
+            'A shot of espresso, steamed milk and a fine layer of foamed milk on top, though more than a flat white.',
+        Cappuccino:
+            'Related to the latte but with equal parts steamed milk and foamed milk - show off your foamstache!',
+        Mocha: 'A shot of espresso mixed with chocolate syrup, steamed milk then topped with foamed milk and cocoa powder.',
     };
 
     const div = document.createElement('div');
