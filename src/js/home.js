@@ -8,15 +8,13 @@ export function generateHome() {
     const slogan = document.createElement('h3');
     const caption = document.createElement('p');
 
-    home.setAttribute('id', 'home');
+    home.id = 'home';
+
     heading.textContent = 'CS170mg';
     slogan.innerHTML = 'The coffee you know and love<br>with just that little bit more';
     caption.textContent = 'It all begins with a bean, a love, a passion.';
 
-    home.appendChild(heading);
-    home.appendChild(slogan);
-    home.appendChild(caption);
-    fragment.appendChild(home);
+    [heading, slogan, caption].forEach((section) => home.appendChild(section));
 
     content.appendChild(fragment);
 }

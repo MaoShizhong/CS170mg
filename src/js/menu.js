@@ -5,15 +5,13 @@ export function generateMenu() {
     content.replaceChildren();
 
     const menu = document.createElement('div');
-    menu.setAttribute('id', 'menu');
+    menu.id = 'menu';
 
     const beans = createBeansDiv();
     const method = createMethodDiv();
     const espresso = createEspressoDiv();
 
-    menu.appendChild(beans);
-    menu.appendChild(method);
-    menu.appendChild(espresso);
+    [beans, method, espresso].forEach((section) => menu.appendChild(section));
 
     content.appendChild(menu);
 }
@@ -24,7 +22,8 @@ function createBeansDiv() {
             'A slow-growing, high-altitude bean that provides a full body with rich, smooth chocolatey, nutty notes.',
         'Ethiopian Rocko Mountain':
             'A light-medium roast that shows off an enormous complexity of fruity and floral notes, with a subtle hint of wine.',
-        'Monsoon Malabar': 'Dark and heavy - these beans boast a deep, smokey, spicy flavour profile.',
+        'Monsoon Malabar':
+            'Dark and heavy - these beans boast a deep, smokey, spicy flavour profile.',
         'Brazilian Monte Cristo':
             'This full-bodied blend gives a subtle sweetness and delicate acidity with a unique aftertaste of cocoa and vanilla.',
         'Old Brown Java':
@@ -34,7 +33,7 @@ function createBeansDiv() {
     };
 
     const div = document.createElement('div');
-    div.setAttribute('id', 'pick-bean');
+    div.id = 'pick-bean';
 
     const heading = document.createElement('h1');
     heading.textContent = 'Choose your beans';
@@ -48,15 +47,15 @@ function createBeansDiv() {
 
 function createMethodDiv() {
     const div = document.createElement('div');
-    div.setAttribute('id', 'method');
+    div.id = 'method';
 
     const heading = document.createElement('h1');
     const methods = document.createElement('div');
-    const methodsArr = ['Aeropress', 'Pour-over', 'French press'];
     const price = document.createElement('h2');
 
     heading.textContent = 'Choose a classic brewing method';
-    methodsArr.forEach((method) => {
+
+    ['Aeropress', 'Pour-over', 'French press'].forEach((method) => {
         const p = document.createElement('p');
         p.textContent = method;
         methods.appendChild(p);
@@ -83,7 +82,7 @@ function createEspressoDiv() {
     };
 
     const div = document.createElement('div');
-    div.setAttribute('id', 'espresso');
+    div.id = 'espresso';
 
     const heading = document.createElement('h1');
     const price = document.createElement('h2');
@@ -91,9 +90,7 @@ function createEspressoDiv() {
     price.textContent = 'Regular (340ml) - £3.99 / Large (455ml) - £4.79';
     const grid = createGrid(gridContents, true);
 
-    div.appendChild(heading);
-    div.appendChild(price);
-    div.appendChild(grid);
+    [heading, price, grid].forEach((section) => div.appendChild(section));
 
     return div;
 }
@@ -116,18 +113,20 @@ function createGrid(contents, espresso = false) {
     }
 
     if (espresso) {
+        const drinks = [
+            '<b>Espresso</b> - £2.29',
+            '<b>Ristretto</b> - £2.29',
+            '<b>Macchiato</b> - £2.49',
+        ];
+
         const div = document.createElement('div');
-        const p1 = document.createElement('p');
-        const p2 = document.createElement('p');
-        const p3 = document.createElement('p');
 
-        p1.innerHTML = '<b>Espresso</b> - £2.29';
-        p2.innerHTML = '<b>Ristretto</b> - £2.29';
-        p3.innerHTML = '<b>Macchiato</b> - £2.49';
+        drinks.forEach((drinkListing) => {
+            const p = document.createElement('p');
+            p.innerHTML = drinkListing;
+            div.appendChild(p);
+        });
 
-        div.appendChild(p1);
-        div.appendChild(p2);
-        div.appendChild(p3);
         grid.appendChild(div);
     }
 
